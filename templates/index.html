@@ -1,0 +1,24 @@
+<html>
+  <head>
+    <title>NerdFactsAreFun</title>
+  </head>
+  <body>
+    <h1>Nerd Facts Are Fun!</h1>
+    <h2>
+      Here's a fun fact: Pokémon are a type of monster that can be captured and
+      trained for battle.
+    </h2>
+    <h2>
+      Here's a fun fact: The average height of pokémon is {{ '%0.2f' |
+      format(avg[0]|float) }} decimetres.
+    </h2>
+    <h2>
+      Here's a fun fact: The tallest pokémon is {{tallest_name}} with a height
+      of {{ max_height }} decimeters.
+    </h2>
+    <h2>
+      Here's a plot showing the proportions of different types of pokémon:
+    </h2>
+    <img src="/plot.png" alt="my plot" />
+  </body>
+</html>

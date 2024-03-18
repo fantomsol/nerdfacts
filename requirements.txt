@@ -1,0 +1,6 @@
+psycopg2-binary==2.9.3
+flask==3.0
+requests==2.20.1
+pokebase
+pandas==2.2
+matplotlib==3.8.3

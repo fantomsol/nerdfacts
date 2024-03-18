@@ -1,0 +1,19 @@
+version: "3.9"
+services:
+  app:
+    build: "."
+    ports:
+      - "5000:5000"
+  postgres:
+    image: postgres:14-alpine
+    ports:
+      - 5432:5432
+    volumes:
+      - db-data:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_PASSWORD=pass
+      - POSTGRES_USER=user
+      - POSTGRES_DB=postgres_db
+
+volumes:
+  db-data:
