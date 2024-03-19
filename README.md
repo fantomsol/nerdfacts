@@ -7,4 +7,4 @@ The container set is based on the official [python:3-onbuild](https://hub.docker
 First make sure you have docker-compose installed on your machine.
 Next, run `docker-compose up` in a terminal window.
 Open the local IP adress as shown (if two are shown, choose the lower one).
-A large amount of pokémon will now download. This may take up to two hours. The webpage will show a blank loading screen before it is done.
+A large amount of pokémon will download in the background. This may take up to two hours. The webpage will show facts and graphs, but the information won't be reliable until after the download is finished. This may take up to two hours.

@@ -10,27 +10,27 @@
     <ol>
       <li>
         The average height of pokémon is {{ '%0.2f' | format(avg[0]|float) }}
-        decimetres.
+        meters.
       </li>
       <li>
         The tallest pokémon is {{tallest_name}} with a height of {{ max_height
-        }} decimeters.
+        }} meters.
       </li>
       <li>
         The shortest pokémon is {{shortest_name}} with a height of {{ min_height
-        }} decimeters.
+        }} meters.
       </li>
       <li>
         The average weight of pokémon is {{ '%0.2f' | format(avg[0]|float) }}
-        hectograms.
+        kilograms.
       </li>
       <li>
         The heaviest pokémon is {{heaviest_name}} with a weight of {{ max_weight
-        }} hectograms.
+        }} kilograms.
       </li>
       <li>
         The lightest pokémon is {{lightest_name}} with a weight of {{ min_weight
-        }} hectograms.
+        }} kilograms.
       </li>
     </ol>
     <h2>
@@ -41,5 +41,9 @@
     <img src="/plot_avg_height_type.png" alt="my plot" />
     <h2>Here's a plot showing the average weight for each type of pokémon:</h2>
     <img src="/plot_avg_weight_type.png" alt="my plot" />
+    <h2>Does heavyweight equal heavyweight in battle? Here's a plot showing the correspondance between weight and base experience:</h2>
+    <img src="/plot_weight_exp_type.png" alt="my plot" />
+    <h2>Dimensionality of different types of pokémon is shown below:</h2>
+    <img src="/plot_height_weight_type.png" alt="my plot" />
   </body>
 </html>

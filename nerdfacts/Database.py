@@ -35,6 +35,7 @@ class Database:
             """CREATE TABLE IF NOT EXISTS pokemon (
             id SERIAL PRIMARY KEY,
             name TEXT,
+            base_experience INTEGER,
             types TEXT[],
             height FLOAT,
             weight FLOAT
@@ -45,17 +46,29 @@ class Database:
     def store_pokemon(self, pokemon):
         self._run_query(
             query="""INSERT INTO pokemon (
-                          name, types, height, weight
-                            ) VALUES (%s, %s, %s, %s)""",
+                          name, base_experience, types, height, weight
+                            ) VALUES (%s, %s, %s, %s, %s)""",
             fetch="none",
-            data=(pokemon.name, pokemon.types, pokemon.height, pokemon.weight),
+            data=(
+                pokemon.name,
+                pokemon.base_experience,
+                pokemon.types,
+                pokemon.height,
+                pokemon.weight,
+            ),
+        )
+        # purge any duplicates
+        self._run_query(
+            "DELETE FROM pokemon a USING pokemon b WHERE a.id < b.id AND a.name = b.name",
+            "none",
         )
 
     def purge_pokemon(self):
         return self._run_query("DROP TABLE IF EXISTS pokemon", "none")
 
-    def get_all_pokemon(self):
-        return self._run_query("SELECT * FROM pokemon", "all")
+    def get_all_pokemon_names(self):
+        result = self._run_query("SELECT name FROM pokemon", "all")
+        return list(map(lambda x: x[0], result))
 
     def get_x_pokemon(self, x):
         return self._run_query(f"SELECT * FROM pokemon LIMIT {x}", "all")
@@ -108,6 +121,28 @@ class Database:
                        AVG(weight) 
                        FROM pokemon, unnest(types) type 
                        GROUP BY type
+                       """,
+            "all",
+        )
+
+    def get_weight_base_experience_per_type(self):
+        return self._run_query(
+            """
+                       SELECT type, 
+                       weight, 
+                       base_experience 
+                       FROM pokemon, unnest(types) type
+                       """,
+            "all",
+        )
+
+    def get_height_weight_per_type(self):
+        return self._run_query(
+            """
+                       SELECT type, 
+                       height, 
+                       weight 
+                       FROM pokemon, unnest(types) type 
                        """,
             "all",
         )
