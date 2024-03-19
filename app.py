@@ -3,6 +3,7 @@ from flask import Flask, render_template
 from flask_crontab import Crontab
 from nerdfacts.figures import *
 from nerdfacts.DownloadThread import DownloadThread
+import time
 
 app = Flask(__name__)
 crontab = Crontab(app)
@@ -10,6 +11,7 @@ db = Database()
 db.connect()
 db.create_table()
 DownloadThread().start()
+time.sleep(4)
 
 
 @app.route("/plot_count_type.png")
