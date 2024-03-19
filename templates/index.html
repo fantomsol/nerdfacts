@@ -5,20 +5,41 @@
   <body>
     <h1>Nerd Facts Are Fun!</h1>
     <h2>
-      Here's a fun fact: Pokémon are a type of monster that can be captured and
-      trained for battle.
+      Here are the fun facts of this week, with the theme being... pokémon!!
     </h2>
-    <h2>
-      Here's a fun fact: The average height of pokémon is {{ '%0.2f' |
-      format(avg[0]|float) }} decimetres.
-    </h2>
-    <h2>
-      Here's a fun fact: The tallest pokémon is {{tallest_name}} with a height
-      of {{ max_height }} decimeters.
-    </h2>
+    <ol>
+      <li>
+        The average height of pokémon is {{ '%0.2f' | format(avg[0]|float) }}
+        decimetres.
+      </li>
+      <li>
+        The tallest pokémon is {{tallest_name}} with a height of {{ max_height
+        }} decimeters.
+      </li>
+      <li>
+        The shortest pokémon is {{shortest_name}} with a height of {{ min_height
+        }} decimeters.
+      </li>
+      <li>
+        The average weight of pokémon is {{ '%0.2f' | format(avg[0]|float) }}
+        hectograms.
+      </li>
+      <li>
+        The heaviest pokémon is {{heaviest_name}} with a weight of {{ max_weight
+        }} hectograms.
+      </li>
+      <li>
+        The lightest pokémon is {{lightest_name}} with a weight of {{ min_weight
+        }} hectograms.
+      </li>
+    </ol>
     <h2>
       Here's a plot showing the proportions of different types of pokémon:
     </h2>
-    <img src="/plot.png" alt="my plot" />
+    <img src="/plot_count_type.png" alt="my plot" />
+    <h2>Here's a plot showing the average height for each type of pokémon:</h2>
+    <img src="/plot_avg_height_type.png" alt="my plot" />
+    <h2>Here's a plot showing the average weight for each type of pokémon:</h2>
+    <img src="/plot_avg_weight_type.png" alt="my plot" />
   </body>
 </html>

@@ -4,3 +4,4 @@ requests==2.20.1
 pokebase
 pandas==2.2
 matplotlib==3.8.3
+flask-crontab==0.1.2
